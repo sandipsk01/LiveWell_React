@@ -4,8 +4,9 @@ import yoga from "./yoga.jpg";
 import diet from "./diet.jpg";
 import prev from "./prev.png";
 import next from "./next.png";
+import elder from "./elder.jpg";
 export default function Curosal() {
-  const banners = [gym, yoga, diet];
+  const banners = [gym, yoga, elder, diet];
   const [activeBanner, setActiveBanner] = useState(0);
 
   const prevButton = () => {
@@ -26,13 +27,13 @@ export default function Curosal() {
   }, [activeBanner]);
 
   return (
-    <div className="relative">
+    <div className="relative flex bg-slate-200 justify-center">
       {banners.map((banner, i) => (
         <div
           key={banner}
-          className={"relative max-w-screen-xl max-h-screen-xl aspect-[9/14] sm:aspect-[3.5/2] " + (activeBanner === i ? "block" : "hidden")}
+          className={"relative w-[90vw] my-2 aspect-[9/14] sm:aspect-[3.5/2] " + (activeBanner === i ? "block" : "hidden")}
         >
-          <img src={banner} alt="banner" className="w-full h-full object-cover" />
+          <img src={banner} alt="banner" className="w-full rounded-lg h-full object-cover" />
           <button
             className="absolute top-1/2 transform -translate-y-1/2 left-4"
             onClick={prevButton}

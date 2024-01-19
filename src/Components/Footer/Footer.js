@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </a>
             <div className="text-gray-500 dark:text-gray-400 font-medium text-center md:text-left">
-            At LiveWell, we make group workouts fun, daily food healthy & tasty, mental fitness easy with yoga & meditation, Medical & lifestyle care hassle-free.#BeBetterEveryDay
+            At LiveWell, we make workouts fun, daily food healthy & tasty, mental fitness easy with yoga & meditation, Medical & lifestyle care hassle-free.#BeBetterEveryDay
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-2">

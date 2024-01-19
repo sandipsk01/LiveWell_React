@@ -4,7 +4,7 @@ import Imp from './Imp/Imp'
 
 export default function Home() {
   return (
-    <div className='flex flex-col justify-center w-full items-center bg-slate-200'>
+    <div className='flex flex-col items-center bg-slate-200'>
     <Curosal />
     <Imp />
     </div>

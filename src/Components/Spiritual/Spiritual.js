@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import spiritual from "./spirituality.jpg";
 import videos from "./video.json";
+import books from "./books.json";
 function Spiritual() {
   const [content, setContent] = useState("video");
 
@@ -44,20 +46,55 @@ function Spiritual() {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center">
-        {videos.map((video, index) => {
-          return (
-            <iframe
-              title={index}
-              key={index}
-              className="w-[300px] h-[200px] mx-6 my-4 rounded-lg"
-              allowFullScreen={true}
-              src={`https://www.youtube.com/embed/videoseries?list=${video.videoID}&rel=0`}
-              type="video/mp4"
-            />
-          );
-        })}
-      </div>
+      {content === "video" ? (
+        <div className="flex flex-wrap justify-center">
+          {videos.map((video, index) => {
+            return (
+              <iframe
+                title={index}
+                key={index}
+                className="w-[300px] h-[200px] mx-6 my-4 rounded-lg"
+                allowFullScreen={true}
+                src={`https://www.youtube.com/embed/videoseries?list=${video.videoID}&rel=0`}
+                type="video/mp4"
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="flex flex-wrap justify-center">
+          {books.map((book, index) => {
+            return (
+              <div key={index} className="w-[300px] mx-6 my-4 rounded-lg bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+                
+                  <img
+                    className="rounded-t-lg object-fill w-[300px] aspect-[3/4]"
+                    src={book.imgUrl}
+                    alt="bookimg"
+                  />
+                
+                <div className="p-5">
+                  
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      {book.title}
+                    </h5>
+                  
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    {book.author}
+                  </p>
+                  <Link
+                    to={book.buyUrl}
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Buy Now
+                    
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

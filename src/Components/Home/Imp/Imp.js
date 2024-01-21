@@ -11,11 +11,11 @@ export default function Imp() {
   const food=["May help you live longer", "Keeps skin, teeth, and eyes healthy", "Boosts immunity", "Supports muscles","Strengthens bones"];
 
   return (
-    <div className="flex flex-col sm:flex-row mt-[5vh] justify-center items-center font-thin font-serif">
+    <div className="flex flex-col lg:flex-row mt-[5vh] justify-center items-center font-thin font-serif">
       <div className="mb-8">
         <div className="font-serif font-bold">Importance Of Physical Exercise</div>
         <img
-          className="w-[90vw] sm:w-[30vw] h-[50vh] items-center object-cover rounded-md"
+          className="w-[90vw] lg:w-[30vw] h-[50vh] items-center object-cover rounded-md"
           src={exercise}
           alt="gymimg"
         />
@@ -28,7 +28,7 @@ export default function Imp() {
       <div className="mb-8 sm:ml-4">
         <div className="font-serif font-bold">Importance Of Spiritual Activities</div>
         <img
-          className="w-[90vw] h-[50vh] sm:w-[30vw] object-cover rounded-md"
+          className="w-[90vw] h-[50vh] lg:w-[30vw] object-cover rounded-md"
           src={meditation}
           alt="meditation"
         />
@@ -40,7 +40,7 @@ export default function Imp() {
       <div className="mb-8 sm:ml-4">
         <div className="font-serif font-bold">Importance Of Healthy Diet</div>
         <img
-          className="w-[90vw] h-[50vh] sm:w-[30vw] object-cover rounded-md"
+          className="w-[90vw] h-[50vh] lg:w-[30vw] object-cover rounded-md"
           src={diet}
           alt="diet"
         />

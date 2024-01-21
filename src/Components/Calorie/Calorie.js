@@ -26,7 +26,7 @@ export default function Calorie() {
   };
   return (
     <div className="bg-slate-200 flex flex-col justify-center items-center ">
-      <div className="mt-[2vh] font-serif font-bold text-slate-800 text-[25px] bg-clip-text">CALORIE FINDER</div>
+      <div className="mt-[2vh] font-serif font-bold text-slate-800 text-[25px] bg-clip-text">NUTRIENT FINDER</div>
 <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Check the Amount of Nutrients in food item.</p>
       <div className="mt-[3vh]">
         <label className="mb-[5vh] text-sm font-medium text-gray-900 sr-only dark:text-white">

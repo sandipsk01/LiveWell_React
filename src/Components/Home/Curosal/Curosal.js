@@ -35,7 +35,7 @@ export default function Curosal() {
         >
           <img src={banner} alt="banner" className="aspect-[9/11] sm:aspect-[4/2] h-[50vh] w-[100vw] md:h-[60vh] lg:h-[90vh] object-fill" />
           <button
-            className="absolute top-1/3 sm:top-[40vh] transform -translate-y-1/2 left-4"
+            className="absolute top-1/3 sm:top-[50vh] transform -translate-y-1/2 left-4"
             onClick={prevButton}
           >
             <img className="w-6" src={prev} />

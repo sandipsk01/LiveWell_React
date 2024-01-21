@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import Curosal from './Curosal/Curosal'
 import Imp from './Imp/Imp'
 

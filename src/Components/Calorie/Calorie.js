@@ -81,7 +81,7 @@ export default function Calorie() {
           <div className="m-[2vh] font-serif font-bold text-slate-700 text-[20px] bg-clip-text ">
             {details.name.toUpperCase()}
           </div>
-          <div className="relative overflow-x-auto shadow-md mb-[3vh] sm:w-[40vw] sm:rounded-lg">
+          <div className="relative overflow-x-auto shadow-md mb-[3vh] sm:w-[40vw] rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr className="flex justify-around">

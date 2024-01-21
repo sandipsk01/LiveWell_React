@@ -31,17 +31,17 @@ export default function Curosal() {
       {banners.map((banner, i) => (
         <div
           key={banner}
-          className={"relative  " + (activeBanner === i ? "block" : "hidden")}
+          className={"relative " + (activeBanner === i ? "block" : "hidden")}
         >
           <img src={banner} alt="banner" className="aspect-[9/11] sm:aspect-[4/2] h-[50vh] w-[100vw] md:h-[60vh] lg:h-[90vh] object-fill" />
           <button
-            className="absolute top-1/3 sm:top-[50vh] transform -translate-y-1/2 left-4"
+            className="absolute top-1/2 sm:top-[40vh] transform -translate-y-1/2 left-4"
             onClick={prevButton}
           >
             <img className="w-6" src={prev} />
           </button>
           <button
-            className="absolute top-1/3 sm:top-[40vh] transform -translate-y-1/2 right-4"
+            className="absolute top-1/2 sm:top-[40vh] transform -translate-y-1/2 right-4"
             onClick={nextButton}
           >
             <img className="w-6" src={next} />

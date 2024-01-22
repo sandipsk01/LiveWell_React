@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./logo.png";
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };  
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const navElement = document.getElementById("navbar");
+
+      if (navElement && !navElement.contains(event.target)) {
+        setIsMenuOpen(false);
+        setIsDropdownOpen(false);
+      }
+    };
+
+    // Attach the event listener to the document
+    document.addEventListener("click", handleClickOutside);
+
+    // Cleanup: Remove the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [])
+
   return (
-    <nav className="bg-white sticky top-0 z-20 w-full dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
+    <nav id="navbar" className="bg-white sticky top-0 z-20 w-full dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <NavLink to="/"
           

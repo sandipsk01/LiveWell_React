@@ -114,36 +114,29 @@ export default function Navbar() {
                   aria-labelledby="dropdownLargeButton"
                 >
                   <li>
-                    <a
-                      href="#"
+                    <NavLink
+                      to="/men"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Men's Fitness
-                    </a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <NavLink
+                      to="/women"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Women's Fitness
-                    </a>
+                    </NavLink>
                   </li>
+                  
                   <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Elderly
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
+                    <NavLink
+                      to="/yoga"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Yoga
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </div>

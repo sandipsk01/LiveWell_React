@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter,
   Routes,
-  Route,
-  NavLink,
+  Route
 } from "react-router-dom";
 import './App.css';
 import Calorie from './Components/Calorie/Calorie';
@@ -11,6 +10,9 @@ import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import Spiritual from "./Components/Spiritual/Spiritual";
+import Fitmen from "./Components/Fitness/Fitmen/Fitmen";
+import Fitwomen from "./Components/Fitness/Fitwomen/Fitwomen";
+import Yoga from "./Components/Fitness/Yoga/Yoga";
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/calorie" element={<Calorie />}/>
             <Route path="/spiritual" element={<Spiritual />}/>
+            <Route path="/men" element={<Fitmen />} />
+            <Route path="/women" element={<Fitwomen/>} />
+            <Route path="/yoga" element={<Yoga/>} />
           </Routes>
         <Footer />
       </div>

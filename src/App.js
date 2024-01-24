@@ -13,6 +13,7 @@ import Spiritual from "./Components/Spiritual/Spiritual";
 import Fitmen from "./Components/Fitness/Fitmen/Fitmen";
 import Fitwomen from "./Components/Fitness/Fitwomen/Fitwomen";
 import Yoga from "./Components/Fitness/Yoga/Yoga";
+import Register from "./Components/Auth/register/Register";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/men" element={<Fitmen />} />
             <Route path="/women" element={<Fitwomen/>} />
             <Route path="/yoga" element={<Yoga/>} />
+            <Route path="/register" element={<Register/>}/>
           </Routes>
         <Footer />
       </div>

@@ -11,10 +11,7 @@ export default function Fitwomen() {
         />
 
         <h5 className="my-2 text-[20px] font-serif  text-gray-700">
-          Spirituality is a fundamental aspect of human experience, which can
-          significantly benefit physical and mental health. Research has shown
-          that spirituality can reduce stress and anxiety and improve coping
-          skills and overall health.
+        Feeling aimless in your fitness routine? Not sure how to Tetris your cardio and strength workouts together to get the most results? This four-week workout plan for women will be like your personal trainer and accountability buddy in one, offering expert workout guidance and a solid schedule to keep you on track.
         </h5>
       </div>
     </div>

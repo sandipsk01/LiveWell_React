@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="flex md:w-[40vw] w-[100vw] flex-col space-y-2 mb-6 md:mb-0 items-center sm:items-start">
           
-            <a href="/" className="flex items-center">
+            <a href="/home" className="flex items-center">
               <img
                 src={logo}
                 className="h-8 me-3"
@@ -30,7 +30,7 @@ const Footer = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
+                  <a href="https://livewell-mocha.vercel.app/home" className="hover:underline">
                     LiveWell
                   </a>
                 </li>
@@ -75,7 +75,7 @@ const Footer = () => {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             
             © {year}{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
+            <a href="https://livewell-mocha.vercel.app/home" className="hover:underline">
               LiveWell™
             </a>
             . All Rights Reserved.

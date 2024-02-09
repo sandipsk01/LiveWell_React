@@ -14,14 +14,16 @@ import Fitmen from "./Components/Fitness/Fitmen/Fitmen";
 import Fitwomen from "./Components/Fitness/Fitwomen/Fitwomen";
 import Yoga from "./Components/Fitness/Yoga/Yoga";
 import Register from "./Components/Auth/register/Register";
-
+import { db } from "./firebaseinit";
+import Login from "./Components/Auth/login/Login";
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
           <Routes>
-            <Route path="/" element={<Home />}/>
+            <Route path="/" element={<Login/>} />
+            <Route path="/home" element={<Home />}/>
             <Route path="/calorie" element={<Calorie />}/>
             <Route path="/spiritual" element={<Spiritual />}/>
             <Route path="/men" element={<Fitmen />} />

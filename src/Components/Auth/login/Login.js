@@ -1,6 +1,19 @@
-import React from 'react'
-
+import React, { useState } from 'react';
+import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
+import {db} from "./../../../firebaseinit.js"
+import authImg from './../auth.png'
 export default function Login() {
+  const [formData, setFormData]=useState({firstname:"", lastname:"", email:"", password:""})
+  async function handleSubmit(e){
+    e.preventDefault();
+    await addDoc(collection(db,'users'),{
+      firstname:formData.firstname,
+      lastname:formData.lastname,
+      email:formData.email,
+      password:formData.password
+    })
+    setFormData({firstname:"", lastname:"", email:"", password:""});
+  }
   return (
     <div className="w-full flex items-center justify-center bg-slate-200 ">
       <div
@@ -15,7 +28,7 @@ export default function Login() {
             />
           </div>
         </div>
-        <form className="w-full sm:w-[1/2] py-10 px-5 md:px-10">
+        <form className="w-full sm:w-[1/2] py-10 px-5 md:px-10" onSubmit={handleSubmit}>
           <div className="text-center mb-10">
             <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
             <p>Enter your information to register</p>
@@ -33,7 +46,11 @@ export default function Login() {
                   <input
                     type="text"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    
                     placeholder="John"
+                    value={formData.firstname}
+                    onChange = {(e) => setFormData({firstname: e.target.value, lastname:formData.lastname, email:formData.email, password:formData.password})}
+                    required
                   />
                 </div>
               </div>
@@ -49,6 +66,9 @@ export default function Login() {
                     type="text"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     placeholder="Smith"
+                    value={formData.lastname}
+                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:e.target.value, email:formData.email, password:formData.password})}
+                    required
                   />
                 </div>
               </div>
@@ -66,6 +86,9 @@ export default function Login() {
                     type="email"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     placeholder="johnsmith@example.com"
+                    value={formData.email}
+                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:e.target.value, password:formData.password})}
+                    required
                   />
                 </div>
               </div>
@@ -83,6 +106,9 @@ export default function Login() {
                     type="password"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     placeholder="************"
+                    value={formData.password}
+                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:formData.email, password:e.target.value})}
+                    required
                   />
                 </div>
               </div>

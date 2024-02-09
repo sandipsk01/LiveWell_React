@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <nav id="navbar" className="bg-white sticky top-0 z-20 w-full dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-        <NavLink to="/"
+        <NavLink to="/home"
           
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
@@ -73,7 +73,7 @@ export default function Navbar() {
           >
             <li>
               <NavLink
-                to="/"
+                to="/home"
                 className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
                 aria-current="page"
               >

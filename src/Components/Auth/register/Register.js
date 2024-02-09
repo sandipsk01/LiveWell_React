@@ -1,5 +1,6 @@
 import React from "react";
 import authImg from "./../auth.png";
+
 export default function Register() {
   return (
     <div className="w-full flex items-center justify-center bg-slate-200 ">

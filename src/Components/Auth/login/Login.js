@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {db} from "./../../../firebaseinit.js"
 import authImg from './../auth.png'
+import { NavLink } from 'react-router-dom';
 export default function Login() {
   const [formData, setFormData]=useState({firstname:"", lastname:"", email:"", password:""})
   async function handleSubmit(e){
@@ -20,7 +21,7 @@ export default function Login() {
         className="bg-gray-100 text-gray-500 my-5 flex rounded-3xl shadow-xl w-[80vw] overflow-hidden"
       >
         <div className="hidden sm:inline-block w-full sm:w-[1/2] ">
-          <div className="inline-block w-[1/2] h-full bg-indigo-500 py-10 px-10">
+          <div className="inline-block w-[1/2] h-full bg-blue-300 py-10 px-10">
             <img
               src={authImg}
               alt="signup"
@@ -30,49 +31,10 @@ export default function Login() {
         </div>
         <form className="w-full sm:w-[1/2] py-10 px-5 md:px-10" onSubmit={handleSubmit}>
           <div className="text-center mb-10">
-            <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
-            <p>Enter your information to register</p>
+            <h1 className="font-bold text-3xl text-gray-900">LOGIN</h1>
+            <p>Enter your information to log in</p>
           </div>
           <div>
-            <div className="flex -mx-3">
-              <div className="w-1/2 px-3 mb-5">
-                <label  className="text-xs flex justify-start font-semibold px-1">
-                  First name
-                </label>
-                <div className="flex">
-                  <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                    <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
-                  </div>
-                  <input
-                    type="text"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                    
-                    placeholder="John"
-                    value={formData.firstname}
-                    onChange = {(e) => setFormData({firstname: e.target.value, lastname:formData.lastname, email:formData.email, password:formData.password})}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="w-1/2 px-3 mb-5">
-                <label  className="text-xs flex justify-start font-semibold px-1">
-                  Last name
-                </label>
-                <div className="flex">
-                  <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                    <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
-                  </div>
-                  <input
-                    type="text"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                    placeholder="Smith"
-                    value={formData.lastname}
-                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:e.target.value, email:formData.email, password:formData.password})}
-                    required
-                  />
-                </div>
-              </div>
-            </div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
                 <label  className="text-xs flex justify-start font-semibold px-1">
@@ -84,7 +46,7 @@ export default function Login() {
                   </div>
                   <input
                     type="email"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-400"
                     placeholder="johnsmith@example.com"
                     value={formData.email}
                     onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:e.target.value, password:formData.password})}
@@ -104,7 +66,7 @@ export default function Login() {
                   </div>
                   <input
                     type="password"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-400"
                     placeholder="************"
                     value={formData.password}
                     onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:formData.email, password:e.target.value})}
@@ -115,9 +77,18 @@ export default function Login() {
             </div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
-                <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
-                  REGISTER NOW
+                <button className="block w-full max-w-xs mx-auto bg-blue-900 hover:bg-blue-950 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                  Login
                 </button>
+              </div>
+            </div>
+            <div className="flex -mx-3">
+              <div className="w-full px-3 mb-5">
+                <NavLink to="/register">
+                <button className="block w-full max-w-xs mx-auto bg-blue-700 hover:bg-blue-800 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                  Sign Up
+                </button>
+                </NavLink>
               </div>
             </div>
           </div>

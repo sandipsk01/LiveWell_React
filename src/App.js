@@ -14,7 +14,6 @@ import Fitmen from "./Components/Fitness/Fitmen/Fitmen";
 import Fitwomen from "./Components/Fitness/Fitwomen/Fitwomen";
 import Yoga from "./Components/Fitness/Yoga/Yoga";
 import Register from "./Components/Auth/register/Register";
-import { db } from "./firebaseinit";
 import Login from "./Components/Auth/login/Login";
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="/" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
             <Route path="/home" element={<Home />}/>
             <Route path="/calorie" element={<Calorie />}/>
             <Route path="/spiritual" element={<Spiritual />}/>

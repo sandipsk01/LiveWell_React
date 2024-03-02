@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
+import {addDoc, collection} from 'firebase/firestore';
 import {db} from "./../../../firebaseinit.js"
 import authImg from './../auth.png'
 import { NavLink } from 'react-router-dom';
@@ -30,9 +30,9 @@ export default function Register() {
           </div>
         </div>
         <form className="w-full sm:w-[1/2] py-10 px-5 md:px-10" onSubmit={handleSubmit}>
-          <div className="text-center mb-10">
+          <div className="text-center mb-5">
             <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
-            <p>Enter your information to register</p>
+            {/* <p>Enter your information to register</p> */}
           </div>
           <div>
             <div className="flex -mx-3">
@@ -95,7 +95,7 @@ export default function Register() {
               </div>
             </div>
             <div className="flex -mx-3">
-              <div className="w-full px-3 mb-12">
+              <div className="w-full px-3 mb-8">
                 <label  className="text-xs flex justify-start font-semibold px-1">
                   Password
                 </label>

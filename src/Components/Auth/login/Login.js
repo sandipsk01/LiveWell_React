@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
-import {db} from "./../../../firebaseinit.js"
-import authImg from './../auth.png'
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./../../../firebaseinit.js";
+import authImg from "./../auth.png";
+import { NavLink } from "react-router-dom";
 export default function Login() {
-  const [formData, setFormData]=useState({firstname:"", lastname:"", email:"", password:""})
-  async function handleSubmit(e){
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  async function handleSubmit(e) {
     e.preventDefault();
-    await addDoc(collection(db,'users'),{
-      firstname:formData.firstname,
-      lastname:formData.lastname,
-      email:formData.email,
-      password:formData.password
-    })
-    setFormData({firstname:"", lastname:"", email:"", password:""});
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const matchingUser = querySnapshot.docs.filter((doc) =>
+        doc.data().email === loginData.email &&
+        doc.data().password === loginData.password
+    );
+
+    if(matchingUser.length>0){
+      const docId= matchingUser[0].id;
+    }else{
+      alert("Incorrect Credentials! Retry Again.");
+    }
+
   }
   return (
     <div className="w-full flex items-center justify-center bg-slate-200 ">
-      <div
-        className="bg-gray-100 text-gray-500 my-5 flex rounded-3xl shadow-xl w-[80vw] overflow-hidden"
-      >
+      <div className="bg-gray-100 text-gray-500 my-5 flex rounded-3xl shadow-xl w-[80vw] overflow-hidden">
         <div className="hidden sm:inline-block w-full sm:w-[1/2] ">
           <div className="inline-block w-[1/2] h-full bg-blue-300 py-10 px-10">
             <img
@@ -29,7 +32,10 @@ export default function Login() {
             />
           </div>
         </div>
-        <form className="w-full sm:w-[1/2] py-10 px-5 md:px-10" onSubmit={handleSubmit}>
+        <form
+          className="w-full sm:w-[1/2] py-10 px-5 md:px-10"
+          onSubmit={handleSubmit}
+        >
           <div className="text-center mb-10">
             <h1 className="font-bold text-3xl text-gray-900">LOGIN</h1>
             <p>Enter your information to log in</p>
@@ -37,7 +43,7 @@ export default function Login() {
           <div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
-                <label  className="text-xs flex justify-start font-semibold px-1">
+                <label className="text-xs flex justify-start font-semibold px-1">
                   Email
                 </label>
                 <div className="flex">
@@ -48,8 +54,13 @@ export default function Login() {
                     type="email"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-400"
                     placeholder="johnsmith@example.com"
-                    value={formData.email}
-                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:e.target.value, password:formData.password})}
+                    value={loginData.email}
+                    onChange={(e) =>
+                      setLoginData({
+                        email: e.target.value,
+                        password: loginData.password,
+                      })
+                    }
                     required
                   />
                 </div>
@@ -57,7 +68,7 @@ export default function Login() {
             </div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-12">
-                <label  className="text-xs flex justify-start font-semibold px-1">
+                <label className="text-xs flex justify-start font-semibold px-1">
                   Password
                 </label>
                 <div className="flex">
@@ -68,8 +79,13 @@ export default function Login() {
                     type="password"
                     className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-400"
                     placeholder="************"
-                    value={formData.password}
-                    onChange = {(e) => setFormData({firstname: formData.firstname, lastname:formData.lastname, email:formData.email, password:e.target.value})}
+                    value={loginData.password}
+                    onChange={(e) =>
+                      setLoginData({
+                        email: loginData.email,
+                        password: e.target.value,
+                      })
+                    }
                     required
                   />
                 </div>
@@ -85,9 +101,9 @@ export default function Login() {
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
                 <NavLink to="/register">
-                <button className="block w-full max-w-xs mx-auto bg-blue-700 hover:bg-blue-800 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
-                  Sign Up
-                </button>
+                  <button className="block w-full max-w-xs mx-auto bg-blue-700 hover:bg-blue-800 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                    Sign Up
+                  </button>
                 </NavLink>
               </div>
             </div>
@@ -95,5 +111,5 @@ export default function Login() {
         </form>
       </div>
     </div>
-  )
+  );
 }

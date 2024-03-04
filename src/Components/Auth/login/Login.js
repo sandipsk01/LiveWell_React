@@ -3,8 +3,10 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "./../../../firebaseinit.js";
 import authImg from "./../auth.png";
 import { NavLink } from "react-router-dom";
-export default function Login() {
-  const [loginData, setLoginData] = useState({ email: "", password: "" });
+export let docId=null;
+export default function Login({setDocId}) {
+  const [loginData, setLoginData] = useState({ email: "", password: ""});
+  
   async function handleSubmit(e) {
     e.preventDefault();
     const querySnapshot = await getDocs(collection(db, "users"));
@@ -14,8 +16,9 @@ export default function Login() {
     );
 
     if(matchingUser.length>0){
-      const docId= matchingUser[0].id;
+      setDocId(matchingUser[0].id);
     }else{
+      console.log("error")
       alert("Incorrect Credentials! Retry Again.");
     }
 
@@ -59,6 +62,7 @@ export default function Login() {
                       setLoginData({
                         email: e.target.value,
                         password: loginData.password,
+                        
                       })
                     }
                     required
@@ -84,6 +88,7 @@ export default function Login() {
                       setLoginData({
                         email: loginData.email,
                         password: e.target.value,
+                        
                       })
                     }
                     required
@@ -93,9 +98,13 @@ export default function Login() {
             </div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
+              
+                
                 <button className="block w-full max-w-xs mx-auto bg-blue-900 hover:bg-blue-950 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
-                  Login
+                Login
                 </button>
+                
+                
               </div>
             </div>
             <div className="flex -mx-3">

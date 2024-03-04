@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./logo.png";
-export default function Navbar() {
+export default function Navbar({doc:[docId, setDocId]}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -159,12 +159,14 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        <NavLink to="/">
         <button
           type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={()=>setDocId(null)}
         >
-          Log Out
+          {docId!==null?"Log Out":"Log In"}
         </button>
+        </NavLink>
       </div>
     </nav>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -15,13 +15,15 @@ import Fitwomen from "./Components/Fitness/Fitwomen/Fitwomen";
 import Yoga from "./Components/Fitness/Yoga/Yoga";
 import Register from "./Components/Auth/register/Register";
 import Login from "./Components/Auth/login/Login";
+
 function App() {
+  const [docId, setDocId]=useState(null)
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navbar doc={[docId, setDocId]}/>
           <Routes>
-            <Route path="/" element={<Login/>} />
+            <Route path="/" element={docId===null?<Login setDocId={setDocId}/>:<Home />} />
             <Route path="/register" element={<Register/>} />
             <Route path="/home" element={<Home />}/>
             <Route path="/calorie" element={<Calorie />}/>

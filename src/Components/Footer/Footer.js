@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="flex md:w-[40vw] w-[100vw] flex-col space-y-2 mb-6 md:mb-0 items-center sm:items-start">
           
-            <a href="/home" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img
                 src={logo}
                 className="h-8 me-3"

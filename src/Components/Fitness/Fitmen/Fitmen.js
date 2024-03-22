@@ -15,9 +15,6 @@ export default function Fitmen() {
         </h5>
       </div>
       <div className="flex justify-around w-[80vw] space-x-2 space-y-1 sm:space-y-0 items-center flex-wrap p-1 mx-auto my-2 bg-gray-100 rounded-lg dark:bg-slate-900" role="group">
-            <button type="button" className="px-5 py-1.5 w-[70vw] sm:w-[150px] font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg">
-                Home
-            </button>
             <button type="button" className="px-5 py-1.5 w-[70vw] sm:w-[150px] font-medium text-white bg-gray-900 dark:bg-gray-300 dark:text-gray-900 rounded-lg">
                 Beginner
             </button>
